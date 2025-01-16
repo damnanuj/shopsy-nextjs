@@ -3,7 +3,7 @@ import io from "socket.io-client";
 //>>======== Function to fetch all cart items =======>>
 export const fetchCart = async (userId) => {
   return new Promise((resolve, reject) => {
-    const socket = io("http://localhost:5000/");
+    const socket = io("https://shopsy-nextjs.onrender.com/");
 
     socket.emit("getCart", { userId }, (response) => {
       socket.disconnect();

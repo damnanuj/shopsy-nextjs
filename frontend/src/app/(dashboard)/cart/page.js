@@ -19,7 +19,7 @@ const CartPage = () => {
 
       const fetchCartProducts = async () => {
         try {
-          const socket = io("http://localhost:5000");
+          const socket = io("https://shopsy-nextjs.onrender.com");
           const productPromises = cartItems.map(async (item) => {
             // >>==========Fetch product details for each productId===========>>
             const product = await fetchProductById(item.productId);

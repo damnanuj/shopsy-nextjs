@@ -2,7 +2,7 @@ import io from "socket.io-client";
 
 export const removeFromCart = async (userId, productId) => {
   return new Promise((resolve, reject) => {
-    const socket = io("http://localhost:5000");
+    const socket = io("https://shopsy-nextjs.onrender.com");
 
     //>>===========remove the product==================>>
     socket.emit("removeFromCart", { userId, productId }, (response) => {

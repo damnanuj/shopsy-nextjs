@@ -3,7 +3,7 @@ import io from "socket.io-client";
 //>>===========fetch product details by productId==========>>
 export const fetchProductById = async (productId) => {
   return new Promise((resolve, reject) => {
-    const socket = io("http://localhost:5000/");
+    const socket = io("https://shopsy-nextjs.onrender.com/");
 
     socket.emit("fetchProductById", productId, (response) => {
       socket.disconnect();
