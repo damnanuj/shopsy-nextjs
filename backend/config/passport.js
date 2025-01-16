@@ -6,7 +6,7 @@ require("dotenv").config();
 const googleAuthObj = {
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/auth/google/callback",
+  callbackURL: "https://shopsy-nextjs.onrender.com/callback",
 };
 
 passport.use(

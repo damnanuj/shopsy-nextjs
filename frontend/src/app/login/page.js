@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div style={styles.container}>
       <h2>Please log in to access the products</h2>
       {/* >>===========google login===============>> */}
-      <a href="http://localhost:5000/auth/google" style={styles.button}>
+      <a href="https://shopsy-nextjs.onrender.com" style={styles.button}>
         <img
           src="https://img.icons8.com/?size=512&id=17949&format=png"
           alt="Google Login"
