@@ -1,7 +1,18 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt_token");
+    localStorage.removeItem("user");
+
+    
+    router.push("/");
+  };
+
   return (
     <div style={styles.header}>
       <div style={styles.leftMenu}>
@@ -17,9 +28,10 @@ const Header = () => {
       </div>
       <div style={styles.rightMenu}>
         <p></p>
-        <Link href="/logout" style={styles.link}>
+        {/* >>=============Logout button================>> */}
+        <button onClick={handleLogout} style={styles.link}>
           Logout
-        </Link>
+        </button>
       </div>
     </div>
   );
@@ -47,6 +59,10 @@ const styles = {
     padding: "10px 15px",
     borderRadius: "5px",
     transition: "background-color 0.3s",
+    backgroundColor: "transparent",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "16px",
   },
 };
 
