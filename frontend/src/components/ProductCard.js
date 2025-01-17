@@ -1,6 +1,33 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { addToWishlist } from "@/network/wishlistSocket";
 
 const ProductCard = ({ product }) => {
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      console.log(parsedUser._id);
+      setUserId(parsedUser._id);
+    }
+  }, []);
+
+  const handleAddToWishlist = () => {
+    if (!userId) {
+      alert("User not logged in!");
+      return;
+    }
+
+    addToWishlist(userId, product._id, (response) => {
+      if (response.success) {
+        alert("Product added to wishlist!");
+      } else {
+        alert(`Failed to add product to wishlist: ${response.message}`);
+      }
+    });
+  };
+
   return (
     <div style={styles.card}>
       <img src={product.image} alt={product.title} style={styles.image} />
@@ -11,7 +38,9 @@ const ProductCard = ({ product }) => {
         Rating: {product.rating.rate} ({product.rating.count} reviews)
       </p>
       <div style={styles.buttonContainer}>
-        <button style={styles.button}>Add to Wishlist</button>
+        <button onClick={handleAddToWishlist} style={styles.button}>
+          Add to Wishlist
+        </button>
         <button style={styles.button}>Add to Cart</button>
       </div>
     </div>

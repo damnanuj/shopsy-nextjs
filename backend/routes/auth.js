@@ -18,7 +18,7 @@ router.get(
       expiresIn: "1h",
     });
     res.redirect(
-      `http://localhost:3000/products?token=${token}&user=${JSON.stringify(
+      `https://shopsy-nextjs.vercel.app/products?token=${token}&user=${JSON.stringify(
         user
       )}`
     );

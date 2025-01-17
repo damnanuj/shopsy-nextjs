@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const router = useRouter();
@@ -9,7 +9,6 @@ const Header = () => {
     localStorage.removeItem("jwt_token");
     localStorage.removeItem("user");
 
-    
     router.push("/");
   };
 
